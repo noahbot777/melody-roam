@@ -101,7 +101,7 @@ body {
   transition: all 0.6s cubic-bezier(0.2,0,0.2,1);
 }
 
-/* 30张位置 */
+/* 照片位置 */
 .s1  { top:5%;   left:1%;  }
 .s2  { top:8%;   left:15%; }
 .s3  { top:3%;   left:28%; }
@@ -145,6 +145,14 @@ body {
 .s38 { top:121%;  left:162%; }
 .s39 { top:128%;  left:176%; }
 .s40 { top:135%;  left:190%; }
+.s41 { top:142%;  left:204%; }
+
+
+
+
+
+
+
 
 /* 背景图路径 */
 .s1  { background-image: url("../assets/index-bg.jpg");  }
@@ -187,6 +195,8 @@ body {
 .s38 { background-image: url("../assets/index38-bg.jpg"); }
 .s39 { background-image: url("../assets/index39-bg.jpg"); }
 .s40 { background-image: url("../assets/index40-bg.jpg"); }
+.s41 { background-image: url("../assets/index41-bg.jpg"); }
+
 
 /* 中间主题封面 */
 .dynamic-covers {
@@ -228,10 +238,10 @@ body {
 .cpop { bottom: 20%; left: 20%; }
 .kpop { bottom: 15%; right: 15%; }
 
-.hiphop { background-image: url("../assets/index21-bg.jpg"); }
-.rnb    { background-image: url("../assets/index3-bg.jpg"); }
+.hiphop { background-image: url("../assets/index42-bg.jpg"); }
+.rnb    { background-image: url("../assets/index43-bg.jpg"); }
 .cpop   { background-image: url("../assets/index24-bg.jpg"); }
-.kpop   { background-image: url("../assets/index9-bg.jpg"); }
+.kpop   { background-image: url("../assets/index44-bg.jpg"); }
 
 .dynamic-cover::before {
   content: '';
