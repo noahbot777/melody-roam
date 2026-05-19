@@ -1,0 +1,815 @@
+/* ========== HipHop 页面专属样式 ========== */
+
+:root {
+  --hiphop-accent: #f5a623;
+  --hiphop-dark: #1a1a1a;
+  --hiphop-gold: #d4940b;
+}
+
+/* ========== Hero 区域 ========== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 60%, #1a1a1a 100%);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(245, 166, 35, 0.08) 0%, transparent 70%),
+    radial-gradient(circle at 80% 30%, rgba(245, 166, 35, 0.05) 0%, transparent 60%),
+    radial-gradient(circle at 50% 80%, rgba(15, 52, 96, 0.4) 0%, transparent 60%);
+  z-index: 0;
+}
+
+/* 背景装饰线条 */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.015) 40px, rgba(255,255,255,0.015) 41px),
+    repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.01) 60px, rgba(255,255,255,0.01) 61px);
+  z-index: 0;
+}
+
+.hero-overlay {
+  display: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 40px;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 8px 24px;
+  border: 1px solid rgba(245, 166, 35, 0.4);
+  border-radius: 30px;
+  color: var(--hiphop-accent);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  backdrop-filter: blur(10px);
+  background: rgba(245, 166, 35, 0.06);
+}
+
+.hero h1 {
+  font-family: 'SF Pro Display', 'Inter', system-ui, sans-serif;
+  font-size: clamp(64px, 10vw, 120px);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -2px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+  letter-spacing: 4px;
+  margin-bottom: 50px;
+}
+
+.hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-num {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 1px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 12px;
+  letter-spacing: 2px;
+  animation: floatDown 2s ease-in-out infinite;
+}
+
+.scroll-arrow {
+  width: 20px;
+  height: 20px;
+  border-right: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.4);
+  transform: rotate(45deg);
+}
+
+@keyframes floatDown {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+
+/* ========== 通用区域样式 ========== */
+.section-padding {
+  padding: 120px 70px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.section-tag {
+  display: inline-block;
+  padding: 6px 20px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
+  font-size: 13px;
+  color: #86868b;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  font-family: 'SF Pro Display', 'Inter', system-ui, sans-serif;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  color: #1d1d1f;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+
+.section-desc {
+  font-size: 16px;
+  color: #86868b;
+  margin-top: 12px;
+}
+
+/* ========== 简介卡片 ========== */
+.intro-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.intro-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 28px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+  cursor: default;
+}
+
+.intro-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.intro-icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.intro-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 12px;
+}
+
+.intro-card p {
+  font-size: 14px;
+  color: #86868b;
+  line-height: 1.7;
+}
+
+/* ========== 时间线 ========== */
+.timeline {
+  background: #fafafa;
+  border-radius: 28px;
+  margin: 0 70px 120px;
+  max-width: calc(1400px - 140px);
+}
+
+.timeline .section-header {
+  margin-bottom: 60px;
+}
+
+.timeline-track {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 40px;
+}
+
+.timeline-track::before {
+  content: '';
+  position: absolute;
+  left: 48px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--hiphop-accent), rgba(245, 166, 35, 0.15));
+  border-radius: 1px;
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  gap: 40px;
+  padding-bottom: 48px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 40px;
+  top: 6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--hiphop-accent);
+  transform: translateX(-50%);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  background: var(--hiphop-accent);
+  box-shadow: 0 0 20px rgba(245, 166, 35, 0.3);
+}
+
+.timeline-year {
+  font-family: 'SF Pro Display', 'Inter', system-ui, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--hiphop-accent);
+  min-width: 90px;
+  padding-top: 2px;
+}
+
+.timeline-text h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 6px;
+}
+
+.timeline-text p {
+  font-size: 14px;
+  color: #86868b;
+  line-height: 1.6;
+}
+
+/* ========== 艺术家卡片 ========== */
+.artists-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.artist-card {
+  background: #fff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.artist-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.artist-visual {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+}
+
+.artist-img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center top;
+  transition: transform 0.6s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.artist-card:hover .artist-img {
+  transform: scale(1.06);
+}
+
+.artist-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 40%, transparent 70%);
+}
+
+.artist-rank {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-family: 'SF Pro Display', 'Inter', system-ui, sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: -2px;
+}
+
+.artist-info {
+  padding: 28px 26px;
+}
+
+.artist-info h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin-bottom: 4px;
+}
+
+.artist-alias {
+  display: block;
+  font-size: 13px;
+  color: var(--hiphop-accent);
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+.artist-bio {
+  font-size: 14px;
+  color: #6e6e73;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.artist-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.artist-tags span {
+  padding: 4px 12px;
+  background: #f5f5f7;
+  border-radius: 14px;
+  font-size: 12px;
+  color: #6e6e73;
+  transition: all 0.3s ease;
+}
+
+.artist-card:hover .artist-tags span {
+  background: rgba(245, 166, 35, 0.08);
+  color: var(--hiphop-gold);
+}
+
+.artist-works {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 14px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.work-label {
+  font-size: 11px;
+  color: #86868b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.work-item {
+  font-size: 13px;
+  color: #1d1d1f;
+  font-weight: 500;
+  padding: 4px 12px;
+  background: #f5f5f7;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.work-item:hover {
+  background: var(--hiphop-accent);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.work-item::after {
+  content: ' ♪';
+  font-size: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.work-item:hover::after {
+  opacity: 1;
+}
+
+/* ========== 音乐播放器 ========== */
+.demo {
+  background: linear-gradient(to bottom, transparent 0%, #fafafa 50%);
+}
+
+.demo-player {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  max-width: 800px;
+  margin: 0 auto 50px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 50px 60px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+}
+
+.player-visual {
+  flex-shrink: 0;
+}
+
+.vinyl-disc {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #1a1a1a 0deg 30deg, #2a2a2a 30deg 60deg,
+    #1a1a1a 60deg 90deg, #2a2a2a 90deg 120deg,
+    #1a1a1a 120deg 150deg, #2a2a2a 150deg 180deg,
+    #1a1a1a 180deg 210deg, #2a2a2a 210deg 240deg,
+    #1a1a1a 240deg 270deg, #2a2a2a 270deg 300deg,
+    #1a1a1a 300deg 330deg, #2a2a2a 330deg 360deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.vinyl-disc::after {
+  content: '';
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e0e0e0, #fff);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.vinyl-disc.playing {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.player-controls {
+  flex: 1;
+  min-width: 0;
+}
+
+.track-info h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 4px;
+}
+
+.track-info p {
+  font-size: 14px;
+  color: #86868b;
+  margin-bottom: 24px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 5px;
+  background: #e8e8ed;
+  border-radius: 3px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: height 0.2s ease;
+}
+
+.progress-bar:hover {
+  height: 7px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--hiphop-accent), var(--hiphop-gold));
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.time-display {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #86868b;
+  margin-bottom: 20px;
+}
+
+.control-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ctrl-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: #f5f5f7;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ctrl-btn:hover {
+  background: #e8e8ed;
+  transform: scale(1.05);
+}
+
+.ctrl-play {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--hiphop-accent), var(--hiphop-gold));
+  color: #fff;
+  font-size: 20px;
+  box-shadow: 0 4px 20px rgba(245, 166, 35, 0.3);
+}
+
+.ctrl-play:hover {
+  background: linear-gradient(135deg, var(--hiphop-gold), #c47d08);
+  box-shadow: 0 6px 28px rgba(245, 166, 35, 0.4);
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.volume-icon {
+  font-size: 16px;
+}
+
+.volume-slider {
+  width: 100px;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #e8e8ed;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--hiphop-accent);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* ========== 播放列表 ========== */
+.playlist {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.playlist h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 16px;
+  padding-left: 8px;
+}
+
+.playlist-items {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.playlist-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.playlist-item:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.playlist-item.active {
+  background: rgba(245, 166, 35, 0.06);
+}
+
+.playlist-item.active .pl-num {
+  color: var(--hiphop-accent);
+  font-weight: 600;
+}
+
+.pl-num {
+  font-size: 14px;
+  color: #86868b;
+  min-width: 30px;
+  font-weight: 500;
+}
+
+.pl-title {
+  flex: 1;
+  font-size: 15px;
+  color: #1d1d1f;
+  font-weight: 500;
+}
+
+.playlist-item.active .pl-title {
+  color: var(--hiphop-gold);
+}
+
+.pl-bpm {
+  font-size: 12px;
+  color: #86868b;
+  min-width: 55px;
+  text-align: right;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* ========== 页脚 ========== */
+.footer {
+  background: #1d1d1f;
+  padding: 60px 70px 30px;
+  color: #fff;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-brand {
+  margin-bottom: 30px;
+}
+
+.footer-logo {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+.footer-sub {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 3px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--hiphop-accent);
+}
+
+.footer-copy {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* ========== 响应式 ========== */
+@media (max-width: 1200px) {
+  .intro-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .artists-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 80px 20px;
+  }
+  .timeline {
+    margin: 0 20px 80px;
+  }
+  .hero h1 {
+    font-size: 48px;
+  }
+  .hero-stats {
+    gap: 16px;
+  }
+  .stat-divider {
+    display: none;
+  }
+  .intro-grid {
+    grid-template-columns: 1fr;
+  }
+  .artists-grid {
+    grid-template-columns: 1fr;
+  }
+  .demo-player {
+    flex-direction: column;
+    padding: 30px;
+    gap: 30px;
+  }
+  .vinyl-disc {
+    width: 150px;
+    height: 150px;
+  }
+  .vinyl-disc::after {
+    width: 44px;
+    height: 44px;
+  }
+  .footer {
+    padding: 40px 20px 20px;
+  }
+  .footer-links {
+    gap: 20px;
+  }
+  .artist-visual {
+    height: 240px;
+  }
+}
